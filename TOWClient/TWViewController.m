@@ -58,14 +58,16 @@
 
 - (void)submitToController
 {
-  [_session sendData:[NSKeyedArchiver archivedDataWithRootObject:@{@"operationID":@3 , @"value" : @(_pullOffset)}]
-             toPeers:_session.connectedPeers
-            withMode:MCSessionSendDataUnreliable
-               error:nil];
-  
-  _pullOffset = 0;
-  
-  NSLog(@"submitting offset %f", _pullOffset + _pullScrollView.contentOffset.y);
+  if (_pullOffset > 0){
+    [_session sendData:[NSKeyedArchiver archivedDataWithRootObject:@{@"operationid":@3 , @"value" : @(_pullOffset)}]
+               toPeers:_session.connectedPeers
+              withMode:MCSessionSendDataUnreliable
+                 error:nil];
+    
+    _pullOffset = 0;
+    
+    NSLog(@"submitting offset %f", _pullOffset + _pullScrollView.contentOffset.y);
+  }
 }
 
 #pragma mark - session delegate
@@ -106,7 +108,7 @@
 
     NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
-    NSNumber *operation = (NSNumber*)[dict objectForKey:@"operationID"];
+    NSNumber *operation = (NSNumber*)[dict objectForKey:@"operationid"];
     switch (operation.intValue) {
       case 0:
         [_browserViewController dismissViewControllerAnimated:YES completion:nil];

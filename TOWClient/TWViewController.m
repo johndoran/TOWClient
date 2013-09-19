@@ -27,8 +27,6 @@
   [self showEmailPromptWithString:@"What is your email bro?"];
   [self createCountDownView];
   [self configureScrollView];
-  
-  [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
 }
 
 -(void)configureNetworkAndGame:(NSString*)emailAddress;
@@ -59,8 +57,8 @@
 }
 
 - (void)submitToController
-{  
-  [_session sendData:[NSKeyedArchiver archivedDataWithRootObject:@{@"operationId":@3 , @"value" : @(_pullOffset)}]
+{
+  [_session sendData:[NSKeyedArchiver archivedDataWithRootObject:@{@"operationID":@3 , @"value" : @(_pullOffset)}]
              toPeers:_session.connectedPeers
             withMode:MCSessionSendDataUnreliable
                error:nil];
@@ -143,6 +141,7 @@
   [countDownView startCountDownAndExecuteWhenFinish:^{
     [countDownView setAlpha:0.0];
     [self.pullScrollView setUserInteractionEnabled:YES];
+    [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
   }];
 }
 

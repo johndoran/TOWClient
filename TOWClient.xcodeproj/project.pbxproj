@@ -21,6 +21,7 @@
 		37ACB50917EAF17F004415F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4EB17EAF17F004415F9 /* UIKit.framework */; };
 		37ACB51117EAF17F004415F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37ACB50F17EAF17F004415F9 /* InfoPlist.strings */; };
 		37ACB51317EAF17F004415F9 /* TOWClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB51217EAF17F004415F9 /* TOWClientTests.m */; };
+		663EF97E17EB084E00EEF2D7 /* TWGameStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		37ACB50E17EAF17F004415F9 /* TOWClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOWClientTests-Info.plist"; sourceTree = "<group>"; };
 		37ACB51017EAF17F004415F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37ACB51217EAF17F004415F9 /* TOWClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOWClientTests.m; sourceTree = "<group>"; };
+		663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGameStatusView.m; sourceTree = "<group>"; };
+		663EF97D17EB084E00EEF2D7 /* TWGameStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGameStatusView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 		37ACB4ED17EAF17F004415F9 /* TOWClient */ = {
 			isa = PBXGroup;
 			children = (
+				663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */,
+				663EF97D17EB084E00EEF2D7 /* TWGameStatusView.h */,
 				37ACB4F617EAF17F004415F9 /* TWAppDelegate.h */,
 				37ACB4F717EAF17F004415F9 /* TWAppDelegate.m */,
 				37ACB4F917EAF17F004415F9 /* Main.storyboard */,
@@ -253,6 +258,7 @@
 				37ACB4F417EAF17F004415F9 /* main.m in Sources */,
 				37ACB4F817EAF17F004415F9 /* TWAppDelegate.m in Sources */,
 				37ACB4FE17EAF17F004415F9 /* TWViewController.m in Sources */,
+				663EF97E17EB084E00EEF2D7 /* TWGameStatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +384,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOWClient/TOWClient-Prefix.pch";
 				INFOPLIST_FILE = "TOWClient/TOWClient-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -391,6 +398,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TOWClient/TOWClient-Prefix.pch";
 				INFOPLIST_FILE = "TOWClient/TOWClient-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,6 +463,7 @@
 				37ACB51817EAF17F004415F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37ACB51917EAF17F004415F9 /* Build configuration list for PBXNativeTarget "TOWClientTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +472,7 @@
 				37ACB51B17EAF17F004415F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

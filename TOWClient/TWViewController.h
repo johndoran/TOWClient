@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class TWGameStatusView;
+
 @interface TWViewController : UIViewController<UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet TWGameStatusView *gameStatusView;
 @property (weak, nonatomic) IBOutlet UIScrollView *pullScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *offsetValue;
 

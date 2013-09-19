@@ -7,6 +7,7 @@
 //
 
 #import "TWViewController.h"
+#import "TWGameStatusView.h"
 
 @implementation TWViewController{
   float _pullOffset;

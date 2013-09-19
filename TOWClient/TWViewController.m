@@ -15,7 +15,6 @@
 @implementation TWViewController{
   float _pullOffset;
   MCSession *_session;
-  MCNearbyServiceAdvertiser *_adviser;
   MCBrowserViewController *_browserViewController;
   TWCountDownView *countDownView;
 }
@@ -28,12 +27,15 @@
   [self configureScrollView];
   
   [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
+ 
+  [self performSelector:@selector(configureNetworkAndGame) withObject:nil afterDelay:1.5];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)configureNetworkAndGame
 {
-  [super viewDidAppear:animated];
+  MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"test"];
   
+<<<<<<< HEAD
 //  MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"johnwildoran@gmail.com"];
 //  
 //  _session = [[MCSession alloc]initWithPeer:peerId securityIdentity:@[] encryptionPreference:MCEncryptionNone];
@@ -44,14 +46,6 @@
 //  [_adviser startAdvertisingPeer];
   
   [self performSelector:@selector(test) withObject:nil afterDelay:2];
-}
-
-- (void)setupNewGame{
-  _browserViewController = [[MCBrowserViewController alloc]initWithServiceType:@"ropegame" session:_session];
-  
-  [self presentViewController:_browserViewController animated:YES completion:^{
-    NSLog(@"completed");
-  }];
 }
 
 - (void)test{
@@ -93,20 +87,6 @@
   NSLog(@"submitting offset %f", _pullOffset + _pullScrollView.contentOffset.y);
 }
 
-
-// Incoming invitation request.  Call the invitationHandler block with YES and a valid session to connect the inviting peer to the session.
-- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData*)context invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler
-{
-  
-  
-  [_session nearbyConnectionDataForPeer:peerID withCompletionHandler:^(NSData *connectionData, NSError *error) {
-    [_session connectPeer:peerID withNearbyConnectionData:connectionData];
-  }];
-  
-  invitationHandler(YES, _session);
-
-}
-
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state{
   NSLog(@"session");
 }
@@ -116,13 +96,78 @@
   NSLog(@"session");
 }
 
-// Received a byte stream from remote peer
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream*)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID{
   NSLog(@"session");
 }
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
-  NSLog(@"REVIEVED FORM REMOTE SESSION %@", [NSString stringWithUTF8String:data.bytes]);
+  // 0 connected - should get the team
+  // 1 startgame - trigger countdown
+  // 2 playerprogress - 0 - 1
+  // 3 user progress - scroll offset
+  // 4 end game - end game
+  
+  // dict keys
+  // operationID
+  // value
+  
+  NSString *dataString = [NSString stringWithUTF8String:data.bytes];
+  
+  NSDictionary *sessionDict = [dataString propertyList];
+  NSLog(@"%@", sessionDict);
+
+  int operation = (int)[sessionDict objectForKey:@"operationID"];
+  switch (operation) {
+    case 0:
+      [self displayTeamAfterConnection:[sessionDict objectForKey:@"value"]];
+      break;
+    case 1:
+      [self startGame:[sessionDict objectForKey:@"value"]];
+      break;
+    case 2:
+      [self updateUserProgress:[sessionDict objectForKey:@"value"]];
+      break;
+    case 4:
+      [self endGame:[sessionDict objectForKey:@"value"]];
+      break;
+    default:
+      break;
+  }
+  
+}
+
+#pragma mark - callback methods
+-(void)displayTeamAfterConnection:(NSString*) value
+{
+  
+}
+
+-(void)startGame:(NSString*) value
+{
+  
+}
+
+-(void)updateUserProgress:(NSString*) value
+{
+  
+}
+
+-(void)endGame:(NSString*) value
+{
+  
+}
+
+
+#pragma mark - modal
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController
+{
+  [_browserViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Notifies delegate that the user taps the cancel button.
+- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
+{
+  [_browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)dealloc

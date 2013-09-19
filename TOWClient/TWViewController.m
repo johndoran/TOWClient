@@ -8,6 +8,7 @@
 
 #import "TWViewController.h"
 #import "TWGameStatusView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TWViewController{
   float _pullOffset;
@@ -19,10 +20,7 @@
 {
   [super viewDidLoad];
   
-  _pullScrollView.delegate = self;
-  [_pullScrollView setContentSize:CGSizeMake(320, 4000)];
-  _pullScrollView.contentOffset = CGPointMake(0, 0);
-  [_pullScrollView setBackgroundColor:[UIColor redColor]];
+  [self configureScrollView];
   
   MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"johnwildoran@gmail.com"];
   
@@ -91,6 +89,21 @@
 - (void)didReceiveMemoryWarning
 {
   [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Private Methods
+
+- (void)configureScrollView{
+  _pullScrollView.delegate = self;
+  [_pullScrollView setContentSize:CGSizeMake(320, 4000)];
+  _pullScrollView.contentOffset = CGPointMake(0, 0);
+  _pullScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+  
+  [_pullScrollView setTransform:CGAffineTransformMakeRotation(M_PI)];
+  [_pullScrollView.layer setContents:(id)[UIImage imageNamed:@"GrassBG.png"].CGImage];
+  UIImageView *ropeImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"RopeTile.png"] resizableImageWithCapInsets:UIEdgeInsetsZero]];
+  [ropeImageView setFrame:CGRectMake(44, 0, 233, 4000)];
+  [_pullScrollView addSubview:ropeImageView];
 }
 
 @end

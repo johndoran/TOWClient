@@ -23,6 +23,10 @@
 		37ACB51317EAF17F004415F9 /* TOWClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB51217EAF17F004415F9 /* TOWClientTests.m */; };
 		663EF97E17EB084E00EEF2D7 /* TWGameStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */; };
 		37ACB52017EB0AB4004415F9 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB51F17EB0AB4004415F9 /* MultipeerConnectivity.framework */; };
+		66B1364D17EB244B00F0CCFF /* RopeTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1364B17EB244B00F0CCFF /* RopeTile.png */; };
+		66B1364E17EB244B00F0CCFF /* RopeTile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1364C17EB244B00F0CCFF /* RopeTile@2x.png */; };
+		66B1365117EB2C2900F0CCFF /* GrassBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1364F17EB2C2900F0CCFF /* GrassBG.png */; };
+		66B1365217EB2C2900F0CCFF /* GrassBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365017EB2C2900F0CCFF /* GrassBG@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		37ACB51D17EB0495004415F9 /* RopeTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RopeTile.png; sourceTree = "<group>"; };
 		37ACB51E17EB0495004415F9 /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = "<group>"; };
 		37ACB51F17EB0AB4004415F9 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		66B1364B17EB244B00F0CCFF /* RopeTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RopeTile.png; sourceTree = "<group>"; };
+		66B1364C17EB244B00F0CCFF /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = "<group>"; };
+		66B1364F17EB2C2900F0CCFF /* GrassBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GrassBG.png; sourceTree = "<group>"; };
+		66B1365017EB2C2900F0CCFF /* GrassBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GrassBG@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 		37ACB4DB17EAF17F004415F9 = {
 			isa = PBXGroup;
 			children = (
+				66B1364A17EB242C00F0CCFF /* Resources */,
 				37ACB4ED17EAF17F004415F9 /* TOWClient */,
 				37ACB50C17EAF17F004415F9 /* TOWClientTests */,
 				37ACB4E617EAF17F004415F9 /* Frameworks */,
@@ -171,6 +180,15 @@
 				37ACB51E17EB0495004415F9 /* RopeTile@2x.png */,
 			);
 			path = Resources;
+		66B1364A17EB242C00F0CCFF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				66B1364F17EB2C2900F0CCFF /* GrassBG.png */,
+				66B1365017EB2C2900F0CCFF /* GrassBG@2x.png */,
+				66B1364B17EB244B00F0CCFF /* RopeTile.png */,
+				66B1364C17EB244B00F0CCFF /* RopeTile@2x.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +268,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B1365217EB2C2900F0CCFF /* GrassBG@2x.png in Resources */,
 				37ACB50017EAF17F004415F9 /* Images.xcassets in Resources */,
 				37ACB4F217EAF17F004415F9 /* InfoPlist.strings in Resources */,
 				37ACB4FB17EAF17F004415F9 /* Main.storyboard in Resources */,
+				66B1364E17EB244B00F0CCFF /* RopeTile@2x.png in Resources */,
+				66B1364D17EB244B00F0CCFF /* RopeTile.png in Resources */,
+				66B1365117EB2C2900F0CCFF /* GrassBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

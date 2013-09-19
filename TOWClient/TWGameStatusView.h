@@ -11,5 +11,6 @@
 @interface TWGameStatusView : UIView
 
 - (void)updateResultOfGame:(CGFloat)result;
+- (void)setupNewGameWithPlayerInTeamA:(BOOL)playerInTeamA;
 
 @end

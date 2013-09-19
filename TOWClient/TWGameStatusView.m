@@ -10,12 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface TWGameStatusView()
-@property (nonatomic, strong) UIView *rope;
-@property (nonatomic, strong) UIView *marker;
+@property (nonatomic, strong) UIImageView *rope;
+@property (nonatomic, strong) UIImageView *marker;
+@property (nonatomic, strong) UIImageView *player;
 @property (nonatomic, strong) UILabel *teamA;
 @property (nonatomic, strong) UILabel *teamB;
 
 @property (nonatomic) CGFloat result;
+@property (nonatomic) BOOL playerInTeamA;
 @end
 
 @implementation TWGameStatusView
@@ -30,6 +32,7 @@
       [self createTeamA];
       [self createTeamB];
       [self createMarker];
+      [self createPlayer];
       
       self.result = 0.5;
     }
@@ -40,24 +43,22 @@
   [super layoutSubviews];
   
   [self.teamA setFrame:CGRectMake(5, (self.frame.size.height - self.teamA.frame.size.height)/2, self.teamA.frame.size.width, self.teamA.frame.size.height)];
-  [self.rope setFrame:CGRectMake(10 + self.teamA.frame.size.width, (self.frame.size.height - 10)/2, self.frame.size.width - (20 + self.teamA.frame.size.width + self.teamB.frame.size.width), 10)];
+  [self.rope setFrame:CGRectMake(10 + self.teamA.frame.size.width, (self.frame.size.height - self.rope.frame.size.height)/2, self.frame.size.width - (20 + self.teamA.frame.size.width + self.teamB.frame.size.width), self.rope.frame.size.height)];
   [self.teamB setFrame:CGRectMake(15 + self.teamA.frame.size.width + self.rope.frame.size.width, (self.frame.size.height - self.teamA.frame.size.height)/2, self.teamB.frame.size.width, self.teamB.frame.size.height)];
   [self.marker setFrame:CGRectMake(self.rope.frame.origin.x + self.result*self.rope.frame.size.width, (self.frame.size.height - 20)/2, 5, 20)];
 }
 
 #pragma mark - View Methods
 
-- (void)createRope{
-  self.rope = [self createViewWithColor:[UIColor whiteColor]];
-  [self addSubview:self.rope];
+- (void)createPlayer{
+  self.player = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"playerIcon.png"]];
+  [self addSubview:self.player];
+  [self.player setAlpha:0.0];
 }
 
-- (UIView *)createViewWithColor:(UIColor *)color{
-  UIView *view = [UIView new];
-  [view setBackgroundColor:color];
-  [view.layer setBorderWidth:1.0];
-  [view.layer setBorderColor:[UIColor blackColor].CGColor];
-  return view;
+- (void)createRope{
+  self.rope = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"progressRope.png"]];
+  [self addSubview:self.rope];
 }
 
 - (void)createTeamA{
@@ -82,7 +83,7 @@
 }
 
 - (void)createMarker{
-  self.marker = [self createViewWithColor:[UIColor redColor]];
+  self.marker = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"redFlag.png"]];
   [self addSubview:self.marker];
 }
 
@@ -94,6 +95,28 @@
   [UIView animateWithDuration:0.3 animations:^{
     [self.marker setFrame:CGRectMake(self.rope.frame.origin.x + self.result*self.rope.frame.size.width, (self.frame.size.height - 20)/2, 5, 20)];
   }];
+}
+
+- (void)assignPlayerToTeam:(BOOL)playerInTeamA{
+  self.playerInTeamA = playerInTeamA;
+  
+  [UIView animateWithDuration:0.3 animations:^{
+    [self.player setAlpha:0.0];
+  } completion:^(BOOL finished){
+    if (self.playerInTeamA){
+      [self.player setFrame:CGRectMake(self.teamA.center.x - (self.player.frame.size.width)/2, self.teamA.frame.origin.y + self.teamA.frame.size.height + 5, self.player.frame.size.width, self.player.frame.size.height)];
+    }else{
+      [self.player setFrame:CGRectMake(self.teamB.center.x - (self.player.frame.size.width)/2, self.teamB.frame.origin.y + self.teamB.frame.size.height + 5, self.player.frame.size.width, self.player.frame.size.height)];
+    }
+    [UIView animateWithDuration:0.3 animations:^{
+      [self.player setAlpha:1.0];
+    }];
+  }];
+}
+
+- (void)setupNewGameWithPlayerInTeamA:(BOOL)playerInTeamA{
+  [self assignPlayerToTeam:playerInTeamA];
+  [self updateResultOfGame:0.5];
 }
 
 @end

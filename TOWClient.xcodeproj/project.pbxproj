@@ -26,6 +26,12 @@
 		66B1364E17EB244B00F0CCFF /* RopeTile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1364C17EB244B00F0CCFF /* RopeTile@2x.png */; };
 		66B1365117EB2C2900F0CCFF /* GrassBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1364F17EB2C2900F0CCFF /* GrassBG.png */; };
 		66B1365217EB2C2900F0CCFF /* GrassBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365017EB2C2900F0CCFF /* GrassBG@2x.png */; };
+		66B1365917EB309E00F0CCFF /* redFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365317EB309E00F0CCFF /* redFlag.png */; };
+		66B1365A17EB309E00F0CCFF /* playerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365417EB309E00F0CCFF /* playerIcon.png */; };
+		66B1365B17EB309E00F0CCFF /* progressRope.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365517EB309E00F0CCFF /* progressRope.png */; };
+		66B1365C17EB309E00F0CCFF /* progressRope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365617EB309E00F0CCFF /* progressRope@2x.png */; };
+		66B1365D17EB309E00F0CCFF /* playerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365717EB309E00F0CCFF /* playerIcon@2x.png */; };
+		66B1365E17EB309E00F0CCFF /* redFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B1365817EB309E00F0CCFF /* redFlag@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +70,12 @@
 		66B1364C17EB244B00F0CCFF /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = "<group>"; };
 		66B1364F17EB2C2900F0CCFF /* GrassBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GrassBG.png; sourceTree = "<group>"; };
 		66B1365017EB2C2900F0CCFF /* GrassBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GrassBG@2x.png"; sourceTree = "<group>"; };
+		66B1365317EB309E00F0CCFF /* redFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redFlag.png; sourceTree = "<group>"; };
+		66B1365417EB309E00F0CCFF /* playerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerIcon.png; sourceTree = "<group>"; };
+		66B1365517EB309E00F0CCFF /* progressRope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progressRope.png; sourceTree = "<group>"; };
+		66B1365617EB309E00F0CCFF /* progressRope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progressRope@2x.png"; sourceTree = "<group>"; };
+		66B1365717EB309E00F0CCFF /* playerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playerIcon@2x.png"; sourceTree = "<group>"; };
+		66B1365817EB309E00F0CCFF /* redFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redFlag@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +181,12 @@
 		66B1364A17EB242C00F0CCFF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66B1365317EB309E00F0CCFF /* redFlag.png */,
+				66B1365417EB309E00F0CCFF /* playerIcon.png */,
+				66B1365517EB309E00F0CCFF /* progressRope.png */,
+				66B1365617EB309E00F0CCFF /* progressRope@2x.png */,
+				66B1365717EB309E00F0CCFF /* playerIcon@2x.png */,
+				66B1365817EB309E00F0CCFF /* redFlag@2x.png */,
 				66B1364F17EB2C2900F0CCFF /* GrassBG.png */,
 				66B1365017EB2C2900F0CCFF /* GrassBG@2x.png */,
 				66B1364B17EB244B00F0CCFF /* RopeTile.png */,
@@ -255,12 +273,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				66B1365217EB2C2900F0CCFF /* GrassBG@2x.png in Resources */,
+				66B1365E17EB309E00F0CCFF /* redFlag@2x.png in Resources */,
 				37ACB50017EAF17F004415F9 /* Images.xcassets in Resources */,
 				37ACB4F217EAF17F004415F9 /* InfoPlist.strings in Resources */,
+				66B1365917EB309E00F0CCFF /* redFlag.png in Resources */,
+				66B1365D17EB309E00F0CCFF /* playerIcon@2x.png in Resources */,
+				66B1365B17EB309E00F0CCFF /* progressRope.png in Resources */,
 				37ACB4FB17EAF17F004415F9 /* Main.storyboard in Resources */,
 				66B1364E17EB244B00F0CCFF /* RopeTile@2x.png in Resources */,
 				66B1364D17EB244B00F0CCFF /* RopeTile.png in Resources */,
 				66B1365117EB2C2900F0CCFF /* GrassBG.png in Resources */,
+				66B1365A17EB309E00F0CCFF /* playerIcon.png in Resources */,
+				66B1365C17EB309E00F0CCFF /* progressRope@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

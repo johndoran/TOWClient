@@ -21,7 +21,16 @@
   [self configureScrollView];
   
   [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
+}
 
+- (void)viewDidAppear:(BOOL)animated{
+  [super viewDidAppear:animated];
+  
+  [self performSelector:@selector(test) withObject:nil afterDelay:2];
+}
+
+- (void)test{
+  [self.gameStatusView setupNewGameWithPlayerInTeamA:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

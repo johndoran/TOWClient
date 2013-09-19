@@ -21,7 +21,7 @@
 @implementation TWGameStatusView
 
 - (id)initWithCoder:(NSCoder *)aDecoder
-{
+{ 
   self = [super initWithCoder:aDecoder];
     if (self) {
       [self setBackgroundColor:[UIColor clearColor]];

@@ -28,7 +28,7 @@
   [self createCountDownView];
   [self configureScrollView];
   
-  [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
+  [NSTimer scheduledTimerWithTimeInterval:.5 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
 }
 
 -(void)configureNetworkAndGame:(NSString*)emailAddress;
@@ -59,7 +59,14 @@
 }
 
 - (void)submitToController
-{
+{  
+  [_session sendData:[NSKeyedArchiver archivedDataWithRootObject:@{@"operationId":@3 , @"value" : @(_pullOffset)}]
+             toPeers:_session.connectedPeers
+            withMode:MCSessionSendDataUnreliable
+               error:nil];
+  
+  _pullOffset = 0;
+  
   NSLog(@"submitting offset %f", _pullOffset + _pullScrollView.contentOffset.y);
 }
 
@@ -99,9 +106,9 @@
   
   dispatch_async(dispatch_get_main_queue(), ^{
 
-  NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-  
-  NSNumber *operation = (NSNumber*)[dict objectForKey:@"operationID"];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    NSNumber *operation = (NSNumber*)[dict objectForKey:@"operationID"];
     switch (operation.intValue) {
       case 0:
         [_browserViewController dismissViewControllerAnimated:YES completion:nil];
@@ -119,7 +126,7 @@
       default:
         break;
     }
-    
+
   });
 
 }

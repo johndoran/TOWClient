@@ -22,6 +22,7 @@
 		37ACB51117EAF17F004415F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37ACB50F17EAF17F004415F9 /* InfoPlist.strings */; };
 		37ACB51317EAF17F004415F9 /* TOWClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB51217EAF17F004415F9 /* TOWClientTests.m */; };
 		663EF97E17EB084E00EEF2D7 /* TWGameStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */; };
+		37ACB52017EB0AB4004415F9 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB51F17EB0AB4004415F9 /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,9 @@
 		37ACB51217EAF17F004415F9 /* TOWClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOWClientTests.m; sourceTree = "<group>"; };
 		663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGameStatusView.m; sourceTree = "<group>"; };
 		663EF97D17EB084E00EEF2D7 /* TWGameStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGameStatusView.h; sourceTree = "<group>"; };
+		37ACB51D17EB0495004415F9 /* RopeTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RopeTile.png; sourceTree = "<group>"; };
+		37ACB51E17EB0495004415F9 /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = "<group>"; };
+		37ACB51F17EB0AB4004415F9 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37ACB52017EB0AB4004415F9 /* MultipeerConnectivity.framework in Frameworks */,
 				37ACB4EA17EAF17F004415F9 /* CoreGraphics.framework in Frameworks */,
 				37ACB4EC17EAF17F004415F9 /* UIKit.framework in Frameworks */,
 				37ACB4E817EAF17F004415F9 /* Foundation.framework in Frameworks */,
@@ -104,6 +109,7 @@
 		37ACB4E617EAF17F004415F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37ACB51F17EB0AB4004415F9 /* MultipeerConnectivity.framework */,
 				37ACB4E717EAF17F004415F9 /* Foundation.framework */,
 				37ACB4E917EAF17F004415F9 /* CoreGraphics.framework */,
 				37ACB4EB17EAF17F004415F9 /* UIKit.framework */,
@@ -117,6 +123,7 @@
 			children = (
 				663EF97C17EB084E00EEF2D7 /* TWGameStatusView.m */,
 				663EF97D17EB084E00EEF2D7 /* TWGameStatusView.h */,
+				37ACB51C17EB0495004415F9 /* Resources */,
 				37ACB4F617EAF17F004415F9 /* TWAppDelegate.h */,
 				37ACB4F717EAF17F004415F9 /* TWAppDelegate.m */,
 				37ACB4F917EAF17F004415F9 /* Main.storyboard */,
@@ -155,6 +162,15 @@
 				37ACB50F17EAF17F004415F9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37ACB51C17EB0495004415F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37ACB51D17EB0495004415F9 /* RopeTile.png */,
+				37ACB51E17EB0495004415F9 /* RopeTile@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

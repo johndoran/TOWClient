@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3729419E17EB3E80003626BD /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3729419D17EB3E80003626BD /* MultipeerConnectivity.framework */; };
 		3778B5CF17EB3AB90010D9C6 /* TWGameStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3778B5CE17EB3AB90010D9C6 /* TWGameStatusView.m */; };
 		37ACB4E817EAF17F004415F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4E717EAF17F004415F9 /* Foundation.framework */; };
 		37ACB4EA17EAF17F004415F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4E917EAF17F004415F9 /* CoreGraphics.framework */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3729419D17EB3E80003626BD /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		3778B5CD17EB3AB90010D9C6 /* TWGameStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGameStatusView.h; sourceTree = "<group>"; };
 		3778B5CE17EB3AB90010D9C6 /* TWGameStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGameStatusView.m; sourceTree = "<group>"; };
 		37ACB4E417EAF17F004415F9 /* TOWClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOWClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3729419E17EB3E80003626BD /* MultipeerConnectivity.framework in Frameworks */,
 				37ACB4EA17EAF17F004415F9 /* CoreGraphics.framework in Frameworks */,
 				37ACB4EC17EAF17F004415F9 /* UIKit.framework in Frameworks */,
 				37ACB4E817EAF17F004415F9 /* Foundation.framework in Frameworks */,
@@ -144,6 +147,7 @@
 		37ACB4E617EAF17F004415F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3729419D17EB3E80003626BD /* MultipeerConnectivity.framework */,
 				37ACB4E717EAF17F004415F9 /* Foundation.framework */,
 				37ACB4E917EAF17F004415F9 /* CoreGraphics.framework */,
 				37ACB4EB17EAF17F004415F9 /* UIKit.framework */,

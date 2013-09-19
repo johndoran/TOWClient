@@ -10,7 +10,9 @@
 
 @class TWGameStatusView;
 
-@interface TWViewController : UIViewController<UIScrollViewDelegate>
+@import MultipeerConnectivity;
+
+@interface TWViewController : UIViewController<UIScrollViewDelegate, MCNearbyServiceAdvertiserDelegate, MCSessionDelegate>
 
 @property (weak, nonatomic) IBOutlet TWGameStatusView *gameStatusView;
 @property (weak, nonatomic) IBOutlet UIScrollView *pullScrollView;

@@ -97,30 +97,31 @@
   // operationID
   // value
   
-  NSString *dataString = [NSString stringWithUTF8String:data.bytes];
-  NSLog(@"%@", dataString);
+  dispatch_async(dispatch_get_main_queue(), ^{
+
+  NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
   
-  NSDictionary *sessionDict = [dataString propertyList];
-  NSLog(@"%@", sessionDict);
-  
-  int operation = (int)[sessionDict objectForKey:@"operationID"];
-  switch (operation) {
-    case 0:
-      [self displayTeamAfterConnection:(NSNumber*)[sessionDict objectForKey:@"value"]];
-      break;
-    case 1:
-      [self startGame:[sessionDict objectForKey:@"value"]];
-      break;
-    case 2:
-      [self updateUserProgress:(NSNumber*)[sessionDict objectForKey:@"value"]];
-      break;
-    case 4:
-      [self endGame:(NSNumber*)[sessionDict objectForKey:@"value"]];
-      break;
-    default:
-      break;
-  }
-  
+  NSNumber *operation = (NSNumber*)[dict objectForKey:@"operationID"];
+    switch (operation.intValue) {
+      case 0:
+        [_browserViewController dismissViewControllerAnimated:YES completion:nil];
+        [self displayTeamAfterConnection:(NSNumber*)[dict objectForKey:@"value"]];        
+        break;
+      case 1:
+        [self startGame:[dict objectForKey:@"value"]];
+        break;
+      case 2:
+        [self updateUserProgress:(NSNumber*)[dict objectForKey:@"value"]];
+        break;
+      case 4:
+        [self endGame:(NSNumber*)[dict objectForKey:@"value"]];
+        break;
+      default:
+        break;
+    }
+    
+  });
+
 }
 
 #pragma mark - callback methods

@@ -14,6 +14,7 @@
 
 @implementation TWViewController{
   float _pullOffset;
+  float previousOffset;
   MCSession *_session;
   MCBrowserViewController *_browserViewController;
   TWCountDownView *countDownView;
@@ -54,6 +55,9 @@
     _pullOffset += scrollView.contentOffset.y;
     _pullScrollView.contentOffset = CGPointMake(0, 0);
   }
+  
+  _pullOffset += scrollView.contentOffset.y - previousOffset;
+  previousOffset = scrollView.contentOffset.y;
 }
 
 - (void)submitToController
@@ -65,6 +69,7 @@
                  error:nil];
     
     _pullOffset = 0;
+    previousOffset = 0;
     
     NSLog(@"submitting offset %f", _pullOffset + _pullScrollView.contentOffset.y);
   }

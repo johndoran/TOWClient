@@ -105,7 +105,7 @@
     switch (operation.intValue) {
       case 0:
         [_browserViewController dismissViewControllerAnimated:YES completion:nil];
-        [self displayTeamAfterConnection:(NSNumber*)[dict objectForKey:@"value"]];        
+        [self displayTeamAfterConnection:(NSNumber*)[dict objectForKey:@"value"]];
         break;
       case 1:
         [self startGame:[dict objectForKey:@"value"]];

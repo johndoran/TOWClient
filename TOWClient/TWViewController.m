@@ -19,9 +19,13 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+  [self configureNetwork];
   [self configureScrollView];
   
+  [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
+}
+
+- (void)configureNetwork{
   MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"johnwildoran@gmail.com"];
   
   _session = [[MCSession alloc]initWithPeer:peerId securityIdentity:@[] encryptionPreference:MCEncryptionNone];
@@ -30,6 +34,16 @@
   _adviser = [[MCNearbyServiceAdvertiser alloc]initWithPeer:peerId discoveryInfo:@{} serviceType:@"ropegame"];
   _adviser.delegate = self;
   [_adviser startAdvertisingPeer];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+  [super viewDidAppear:animated];
+  
+  [self performSelector:@selector(test) withObject:nil afterDelay:2];
+}
+
+- (void)test{
+  [self.gameStatusView setupNewGameWithPlayerInTeamA:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

@@ -34,6 +34,10 @@
 		6607C5B717EB3BE4003E3B44 /* RopeTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AD17EB3BE4003E3B44 /* RopeTile.png */; };
 		6607C5B817EB3BE4003E3B44 /* RopeTile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */; };
 		6607C5BB17EB4115003E3B44 /* TWCountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607C5BA17EB4115003E3B44 /* TWCountDownView.m */; };
+		6607C5D017EB52A8003E3B44 /* wonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CC17EB52A8003E3B44 /* wonIcon.png */; };
+		6607C5D117EB52A8003E3B44 /* lostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CD17EB52A8003E3B44 /* lostIcon.png */; };
+		6607C5D217EB52A8003E3B44 /* lostIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CE17EB52A8003E3B44 /* lostIcon@2x.png */; };
+		6607C5D317EB52A8003E3B44 /* wonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CF17EB52A8003E3B44 /* wonIcon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = SOURCE_ROOT; };
 		6607C5B917EB4115003E3B44 /* TWCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCountDownView.h; sourceTree = "<group>"; };
 		6607C5BA17EB4115003E3B44 /* TWCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCountDownView.m; sourceTree = "<group>"; };
+		6607C5CC17EB52A8003E3B44 /* wonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wonIcon.png; sourceTree = SOURCE_ROOT; };
+		6607C5CD17EB52A8003E3B44 /* lostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lostIcon.png; sourceTree = SOURCE_ROOT; };
+		6607C5CE17EB52A8003E3B44 /* lostIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lostIcon@2x.png"; sourceTree = SOURCE_ROOT; };
+		6607C5CF17EB52A8003E3B44 /* wonIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wonIcon@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,10 @@
 		3778B5CC17EB3AB90010D9C6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6607C5CC17EB52A8003E3B44 /* wonIcon.png */,
+				6607C5CD17EB52A8003E3B44 /* lostIcon.png */,
+				6607C5CE17EB52A8003E3B44 /* lostIcon@2x.png */,
+				6607C5CF17EB52A8003E3B44 /* wonIcon@2x.png */,
 				6607C5A517EB3BE4003E3B44 /* redFlag.png */,
 				6607C5A617EB3BE4003E3B44 /* playerIcon.png */,
 				6607C5A717EB3BE4003E3B44 /* progressRope.png */,
@@ -288,9 +300,13 @@
 				6607C5B217EB3BE4003E3B44 /* progressRope@2x.png in Resources */,
 				6607C5B017EB3BE4003E3B44 /* playerIcon.png in Resources */,
 				6607C5B417EB3BE4003E3B44 /* redFlag@2x.png in Resources */,
+				6607C5D217EB52A8003E3B44 /* lostIcon@2x.png in Resources */,
+				6607C5D017EB52A8003E3B44 /* wonIcon.png in Resources */,
+				6607C5D117EB52A8003E3B44 /* lostIcon.png in Resources */,
 				6607C5B317EB3BE4003E3B44 /* playerIcon@2x.png in Resources */,
 				37ACB4FB17EAF17F004415F9 /* Main.storyboard in Resources */,
 				6607C5B117EB3BE4003E3B44 /* progressRope.png in Resources */,
+				6607C5D317EB52A8003E3B44 /* wonIcon@2x.png in Resources */,
 				6607C5AF17EB3BE4003E3B44 /* redFlag.png in Resources */,
 				6607C5B617EB3BE4003E3B44 /* GrassBG@2x.png in Resources */,
 				6607C5B717EB3BE4003E3B44 /* RopeTile.png in Resources */,

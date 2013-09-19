@@ -17,13 +17,14 @@
   MCSession *_session;
   MCNearbyServiceAdvertiser *_adviser;
   MCBrowserViewController *_browserViewController;
+  TWCountDownView *countDownView;
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   [self.view setBackgroundColor:[UIColor clearColor]];
-
+  [self createCountDownView];
   [self configureScrollView];
   
   [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
@@ -33,16 +34,16 @@
 {
   [super viewDidAppear:animated];
   
-  MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"johnwildoran@gmail.com"];
+//  MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"johnwildoran@gmail.com"];
+//  
+//  _session = [[MCSession alloc]initWithPeer:peerId securityIdentity:@[] encryptionPreference:MCEncryptionNone];
+//  _session.delegate = self;
+//  
+//  _adviser = [[MCNearbyServiceAdvertiser alloc]initWithPeer:peerId discoveryInfo:@{} serviceType:@"ropegame"];
+//  _adviser.delegate = self;
+//  [_adviser startAdvertisingPeer];
   
-  _session = [[MCSession alloc]initWithPeer:peerId securityIdentity:@[] encryptionPreference:MCEncryptionNone];
-  _session.delegate = self;
-  
-  _adviser = [[MCNearbyServiceAdvertiser alloc]initWithPeer:peerId discoveryInfo:@{} serviceType:@"ropegame"];
-  _adviser.delegate = self;
-  [_adviser startAdvertisingPeer];
-  
-  [self performSelector:@selector(setupNewGame) withObject:nil afterDelay:2];
+  [self performSelector:@selector(test) withObject:nil afterDelay:2];
 }
 
 - (void)setupNewGame{
@@ -55,20 +56,24 @@
 
 - (void)test{
   [self.gameStatusView setupNewGameWithPlayerInTeamA:YES];
-  [self.pullScrollView setUserInteractionEnabled:NO];
   
   [self performSelector:@selector(startNewGame) withObject:nil afterDelay:2];
 }
 
 - (void)startNewGame{
-  TWCountDownView *countDownView = [[TWCountDownView alloc] initWithFrame:self.pullScrollView.frame];
-  [self.view addSubview:countDownView];
-  [self.view bringSubviewToFront:countDownView];
-  
+  [countDownView setAlpha:1.0];
   [countDownView startCountDownAndExecuteWhenFinish:^{
-    [countDownView removeFromSuperview];
+    [countDownView setAlpha:0.0];
     [self.pullScrollView setUserInteractionEnabled:YES];
+    
+    [self performSelector:@selector(finished) withObject:nil afterDelay:2];
   }];
+}
+
+- (void)finished{
+  [self.pullScrollView setUserInteractionEnabled:NO];
+  [countDownView setAlpha:1.0];
+  [countDownView finishedAndYouWon:NO];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -132,8 +137,16 @@
 
 #pragma mark - Private Methods
 
+- (void)createCountDownView{
+  countDownView = [[TWCountDownView alloc] initWithFrame:self.pullScrollView.frame];
+  [self.view addSubview:countDownView];
+  [self.view bringSubviewToFront:countDownView];
+  [countDownView setAlpha:0.0];
+}
+
 - (void)configureScrollView{
   _pullScrollView.delegate = self;
+  [_pullScrollView setUserInteractionEnabled:NO];
   [_pullScrollView setContentSize:CGSizeMake(320, 4000)];
   _pullScrollView.contentOffset = CGPointMake(0, 0);
   _pullScrollView.decelerationRate = UIScrollViewDecelerationRateFast;

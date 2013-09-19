@@ -13,6 +13,7 @@ typedef void (^onFinishBlock)();
 @property (nonatomic, strong) UILabel *hugeLabel;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) onFinishBlock block;
+@property (nonatomic, strong) UIImageView *resultImageView;
 @end
 
 @implementation TWCountDownView{
@@ -38,8 +39,26 @@ typedef void (^onFinishBlock)();
 
 #pragma mark - Public Methods
 
+- (void)finishedAndYouWon:(BOOL)youWon{
+  [self.hugeLabel setFont:[UIFont systemFontOfSize:50]];
+  [self.hugeLabel setAlpha:1.0];
+  if (youWon){
+    [self.hugeLabel setText:@"You Won!!"];
+    self.resultImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wonIcon.png"]];
+  }else{
+    [self.hugeLabel setText:@"You Lost!!"];
+    self.resultImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lostIcon.png"]];
+  }
+  
+  [self.resultImageView setFrame:CGRectMake((self.bounds.size.width - self.resultImageView.frame.size.width)/2, (self.bounds.size.height - self.resultImageView.frame.size.height)/2 - 100, self.resultImageView.frame.size.width, self.resultImageView.frame.size.height)];
+  [self addSubview:self.resultImageView];
+  
+}
+
 - (void)startCountDownAndExecuteWhenFinish:(void (^)(void))onFinish{
+  [self.resultImageView removeFromSuperview];
   countValue = 3;
+  [self.hugeLabel setFrame:self.bounds];
   [self.hugeLabel setFont:[UIFont systemFontOfSize:200]];
   [self.hugeLabel setText:[NSString stringWithFormat:@"%i",countValue]];
   self.block = onFinish;
@@ -60,7 +79,7 @@ typedef void (^onFinishBlock)();
     [self.hugeLabel setText:[NSString stringWithFormat:@"%i",countValue]];
   }else if (countValue == 1){
     countValue--;
-      [self.hugeLabel setFont:[UIFont systemFontOfSize:120]];
+    [self.hugeLabel setFont:[UIFont systemFontOfSize:120]];
     [self.hugeLabel setText:@"Pull!"];
   }else{
     [self finishCountDown];

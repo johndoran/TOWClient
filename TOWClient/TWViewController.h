@@ -12,7 +12,7 @@
 
 @import MultipeerConnectivity;
 
-@interface TWViewController : UIViewController<UIScrollViewDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate>
+@interface TWViewController : UIViewController<UIScrollViewDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet TWGameStatusView *gameStatusView;
 @property (weak, nonatomic) IBOutlet UIScrollView *pullScrollView;

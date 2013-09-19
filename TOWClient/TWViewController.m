@@ -21,18 +21,18 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
   [self.view setBackgroundColor:[UIColor clearColor]];
 
+  [self showEmailPromptWithString:@"What is your email bro?"];
   [self configureScrollView];
   
   [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
- 
-  [self performSelector:@selector(configureNetworkAndGame) withObject:nil afterDelay:1.5];
-}
+ }
 
--(void)configureNetworkAndGame
+-(void)configureNetworkAndGame:(NSString*)emailAddress;
 {
-  MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:@"test"];
+  MCPeerID *peerId = [[MCPeerID alloc]initWithDisplayName:emailAddress];
   
   _session = [[MCSession alloc]initWithPeer:peerId];
   _session.delegate = self;
@@ -44,14 +44,16 @@
 }
 
 
-- (void)test{
+- (void)test
+{
   [self.gameStatusView setupNewGameWithPlayerInTeamA:YES];
   [self.pullScrollView setUserInteractionEnabled:NO];
   
   [self performSelector:@selector(startNewGame) withObject:nil afterDelay:2];
 }
 
-- (void)startNewGame{
+- (void)startNewGame
+{
   TWCountDownView *countDownView = [[TWCountDownView alloc] initWithFrame:self.pullScrollView.frame];
   [self.view addSubview:countDownView];
   [self.view bringSubviewToFront:countDownView];
@@ -62,11 +64,14 @@
   }];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+#pragma mark - scrolling
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
   _offsetValue.text = [NSString stringWithFormat:@"%f", _pullOffset + scrollView.contentOffset.y];
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
   float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
   if (bottomEdge >= scrollView.contentSize.height) {
     _pullOffset += scrollView.contentOffset.y;
@@ -79,6 +84,7 @@
   NSLog(@"submitting offset %f", _pullOffset + _pullScrollView.contentOffset.y);
 }
 
+#pragma mark - session delegate
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state{
   NSLog(@"session");
 }
@@ -89,6 +95,15 @@
 }
 
 - (void)session:(MCSession *)session didReceiveStream:(NSInputStream*)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID{
+  NSLog(@"session");
+}
+
+- (void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error
+{
+  NSLog(@"session");
+}
+
+-(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress{
   NSLog(@"session");
 }
 
@@ -172,8 +187,29 @@
   [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Private Methods
+#pragma mark email prompt
+- (void)showEmailPromptWithString:(NSString*)message
+{
+  UIAlertView *emailInputView = [[UIAlertView alloc]initWithTitle:message message:@"" delegate:self  cancelButtonTitle:nil otherButtonTitles:@"Play", nil];
+  emailInputView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  [emailInputView show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+  if([title isEqualToString:@"Play"])
+  {
+    UITextField *username = [alertView textFieldAtIndex:0];
+    if([username.text isEqualToString:@""]){
+      [self showEmailPromptWithString:@"Please not a blank one :("];
+    }else{
+      [self configureNetworkAndGame:username.text];
+    }
+  }
+}
+
+#pragma mark - Private Methods
 - (void)configureScrollView{
   _pullScrollView.delegate = self;
   [_pullScrollView setContentSize:CGSizeMake(320, 4000)];

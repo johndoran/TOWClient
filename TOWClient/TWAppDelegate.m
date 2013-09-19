@@ -7,12 +7,14 @@
 //
 
 #import "TWAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+  [self.window.layer setContents:(id)[UIImage imageNamed:@"GrassBG.png"].CGImage];
     return YES;
 }
 							

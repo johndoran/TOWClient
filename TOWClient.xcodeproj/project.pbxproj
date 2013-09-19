@@ -32,6 +32,7 @@
 		6607C5B617EB3BE4003E3B44 /* GrassBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AC17EB3BE4003E3B44 /* GrassBG@2x.png */; };
 		6607C5B717EB3BE4003E3B44 /* RopeTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AD17EB3BE4003E3B44 /* RopeTile.png */; };
 		6607C5B817EB3BE4003E3B44 /* RopeTile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */; };
+		6607C5BB17EB4115003E3B44 /* TWCountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607C5BA17EB4115003E3B44 /* TWCountDownView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		6607C5AC17EB3BE4003E3B44 /* GrassBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GrassBG@2x.png"; sourceTree = SOURCE_ROOT; };
 		6607C5AD17EB3BE4003E3B44 /* RopeTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RopeTile.png; sourceTree = SOURCE_ROOT; };
 		6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = SOURCE_ROOT; };
+		6607C5B917EB4115003E3B44 /* TWCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCountDownView.h; sourceTree = "<group>"; };
+		6607C5BA17EB4115003E3B44 /* TWCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCountDownView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				37ACB4FD17EAF17F004415F9 /* TWViewController.m */,
 				37ACB4FF17EAF17F004415F9 /* Images.xcassets */,
 				37ACB4EE17EAF17F004415F9 /* Supporting Files */,
+				6607C5B917EB4115003E3B44 /* TWCountDownView.h */,
+				6607C5BA17EB4115003E3B44 /* TWCountDownView.m */,
 			);
 			path = TOWClient;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6607C5BB17EB4115003E3B44 /* TWCountDownView.m in Sources */,
 				37ACB4F417EAF17F004415F9 /* main.m in Sources */,
 				3778B5CF17EB3AB90010D9C6 /* TWGameStatusView.m in Sources */,
 				37ACB4F817EAF17F004415F9 /* TWAppDelegate.m in Sources */,

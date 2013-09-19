@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface TWGameStatusView()
+@property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UIImageView *rope;
 @property (nonatomic, strong) UIImageView *marker;
 @property (nonatomic, strong) UIImageView *player;
@@ -28,6 +29,7 @@
     if (self) {
       [self setBackgroundColor:[UIColor clearColor]];
         // Initialization code
+      [self createBackgroundView];
       [self createRope];
       [self createTeamA];
       [self createTeamB];
@@ -42,6 +44,8 @@
 - (void)layoutSubviews{
   [super layoutSubviews];
   
+  [self.backgroundView setFrame:self.bounds];
+  
   [self.teamA setFrame:CGRectMake(5, (self.frame.size.height - self.teamA.frame.size.height)/2, self.teamA.frame.size.width, self.teamA.frame.size.height)];
   [self.rope setFrame:CGRectMake(10 + self.teamA.frame.size.width, (self.frame.size.height - self.rope.frame.size.height)/2, self.frame.size.width - (20 + self.teamA.frame.size.width + self.teamB.frame.size.width), self.rope.frame.size.height)];
   [self.teamB setFrame:CGRectMake(15 + self.teamA.frame.size.width + self.rope.frame.size.width, (self.frame.size.height - self.teamA.frame.size.height)/2, self.teamB.frame.size.width, self.teamB.frame.size.height)];
@@ -49,6 +53,14 @@
 }
 
 #pragma mark - View Methods
+
+- (void)createBackgroundView{
+  self.backgroundView = [UIView new];
+  [self.backgroundView setBackgroundColor:[UIColor whiteColor]];
+  [self.backgroundView setAlpha:0.5];
+  [self addSubview:self.backgroundView];
+  [self sendSubviewToBack:self.backgroundColor];
+}
 
 - (void)createPlayer{
   self.player = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"playerIcon.png"]];

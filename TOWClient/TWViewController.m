@@ -8,7 +8,9 @@
 
 #import "TWViewController.h"
 #import "TWGameStatusView.h"
+#import "TWCountDownView.h"
 #import <QuartzCore/QuartzCore.h>
+
 
 @implementation TWViewController{
   float _pullOffset;
@@ -19,6 +21,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [self.view setBackgroundColor:[UIColor clearColor]];
   [self configureNetwork];
   [self configureScrollView];
   
@@ -39,11 +42,25 @@
 - (void)viewDidAppear:(BOOL)animated{
   [super viewDidAppear:animated];
   
-  [self performSelector:@selector(test) withObject:nil afterDelay:2];
+  [self performSelector:@selector(setupNewGame) withObject:nil afterDelay:2];
 }
 
-- (void)test{
+- (void)setupNewGame{
   [self.gameStatusView setupNewGameWithPlayerInTeamA:YES];
+  [self.pullScrollView setUserInteractionEnabled:NO];
+  
+  [self performSelector:@selector(startNewGame) withObject:nil afterDelay:2];
+}
+
+- (void)startNewGame{
+  TWCountDownView *countDownView = [[TWCountDownView alloc] initWithFrame:self.pullScrollView.frame];
+  [self.view addSubview:countDownView];
+  [self.view bringSubviewToFront:countDownView];
+  
+  [countDownView startCountDownAndExecuteWhenFinish:^{
+    [countDownView removeFromSuperview];
+    [self.pullScrollView setUserInteractionEnabled:YES];
+  }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -114,7 +131,7 @@
   _pullScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
   
   [_pullScrollView setTransform:CGAffineTransformMakeRotation(M_PI)];
-  [_pullScrollView.layer setContents:(id)[UIImage imageNamed:@"GrassBG.png"].CGImage];
+  [_pullScrollView setBackgroundColor:[UIColor clearColor]];
   UIImageView *ropeImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"RopeTile.png"] resizableImageWithCapInsets:UIEdgeInsetsZero]];
   [ropeImageView setFrame:CGRectMake(44, 0, 233, 4000)];
   [_pullScrollView addSubview:ropeImageView];

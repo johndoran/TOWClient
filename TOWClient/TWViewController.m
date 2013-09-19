@@ -16,6 +16,7 @@
   float _pullOffset;
   MCSession *_session;
   MCBrowserViewController *_browserViewController;
+  TWCountDownView *countDownView;
 }
 
 - (void)viewDidLoad
@@ -23,12 +24,12 @@
   [super viewDidLoad];
   
   [self.view setBackgroundColor:[UIColor clearColor]];
-
   [self showEmailPromptWithString:@"What is your email bro?"];
+  [self createCountDownView];
   [self configureScrollView];
   
   [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(submitToController) userInfo:nil repeats:YES];
- }
+}
 
 -(void)configureNetworkAndGame:(NSString*)emailAddress;
 {
@@ -43,30 +44,8 @@
   [self presentViewController:_browserViewController animated:YES completion:nil];
 }
 
-
-- (void)test
-{
-  [self.gameStatusView setupNewGameWithPlayerInTeamA:YES];
-  [self.pullScrollView setUserInteractionEnabled:NO];
-  
-  [self performSelector:@selector(startNewGame) withObject:nil afterDelay:2];
-}
-
-- (void)startNewGame
-{
-  TWCountDownView *countDownView = [[TWCountDownView alloc] initWithFrame:self.pullScrollView.frame];
-  [self.view addSubview:countDownView];
-  [self.view bringSubviewToFront:countDownView];
-  
-  [countDownView startCountDownAndExecuteWhenFinish:^{
-    [countDownView removeFromSuperview];
-    [self.pullScrollView setUserInteractionEnabled:YES];
-  }];
-}
-
 #pragma mark - scrolling
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
   _offsetValue.text = [NSString stringWithFormat:@"%f", _pullOffset + scrollView.contentOffset.y];
 }
 
@@ -119,23 +98,24 @@
   // value
   
   NSString *dataString = [NSString stringWithUTF8String:data.bytes];
+  NSLog(@"%@", dataString);
   
   NSDictionary *sessionDict = [dataString propertyList];
   NSLog(@"%@", sessionDict);
-
+  
   int operation = (int)[sessionDict objectForKey:@"operationID"];
   switch (operation) {
     case 0:
-      [self displayTeamAfterConnection:[sessionDict objectForKey:@"value"]];
+      [self displayTeamAfterConnection:(NSNumber*)[sessionDict objectForKey:@"value"]];
       break;
     case 1:
       [self startGame:[sessionDict objectForKey:@"value"]];
       break;
     case 2:
-      [self updateUserProgress:[sessionDict objectForKey:@"value"]];
+      [self updateUserProgress:(NSNumber*)[sessionDict objectForKey:@"value"]];
       break;
     case 4:
-      [self endGame:[sessionDict objectForKey:@"value"]];
+      [self endGame:(NSNumber*)[sessionDict objectForKey:@"value"]];
       break;
     default:
       break;
@@ -144,24 +124,36 @@
 }
 
 #pragma mark - callback methods
--(void)displayTeamAfterConnection:(NSString*) value
+-(void)displayTeamAfterConnection:(NSNumber*) value
 {
-  
+  [self.gameStatusView setupNewGameWithPlayerInTeamA:value.intValue == 1 ? YES : NO];
 }
 
 -(void)startGame:(NSString*) value
 {
-  
+  [countDownView setAlpha:1.0];
+  [countDownView startCountDownAndExecuteWhenFinish:^{
+    [countDownView setAlpha:0.0];
+    [self.pullScrollView setUserInteractionEnabled:YES];
+  }];
 }
 
--(void)updateUserProgress:(NSString*) value
+-(void)updateUserProgress:(NSNumber*)value
 {
-  
+  [self.gameStatusView updateResultOfGame:value.floatValue];
 }
 
--(void)endGame:(NSString*) value
+-(void)endGame:(NSNumber*)value
 {
+  [self.gameStatusView updateResultOfGame:value.intValue == 1 ? 0.0 : 1.0];
   
+  [self.pullScrollView setUserInteractionEnabled:NO];
+  [countDownView setAlpha:1.0];
+  if((self.gameStatusView.playerInTeamA && value.intValue == 1) || (!self.gameStatusView.playerInTeamA && value.intValue == 2)){
+    [countDownView finishedAndYouWon:YES];
+  }else{
+    [countDownView finishedAndYouWon:NO];
+  }
 }
 
 
@@ -171,7 +163,6 @@
   [_browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-// Notifies delegate that the user taps the cancel button.
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController
 {
   [_browserViewController dismissViewControllerAnimated:YES completion:nil];
@@ -210,8 +201,16 @@
 }
 
 #pragma mark - Private Methods
+- (void)createCountDownView{
+  countDownView = [[TWCountDownView alloc] initWithFrame:self.pullScrollView.frame];
+  [self.view addSubview:countDownView];
+  [self.view bringSubviewToFront:countDownView];
+  [countDownView setAlpha:0.0];
+}
+
 - (void)configureScrollView{
   _pullScrollView.delegate = self;
+  [_pullScrollView setUserInteractionEnabled:NO];
   [_pullScrollView setContentSize:CGSizeMake(320, 4000)];
   _pullScrollView.contentOffset = CGPointMake(0, 0);
   _pullScrollView.decelerationRate = UIScrollViewDecelerationRateFast;

@@ -10,6 +10,8 @@
 
 @interface TWGameStatusView : UIView
 
+@property (nonatomic) BOOL playerInTeamA;
+
 - (void)updateResultOfGame:(CGFloat)result;
 - (void)setupNewGameWithPlayerInTeamA:(BOOL)playerInTeamA;
 

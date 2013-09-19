@@ -18,7 +18,6 @@
 @property (nonatomic, strong) UILabel *teamB;
 
 @property (nonatomic) CGFloat result;
-@property (nonatomic) BOOL playerInTeamA;
 @end
 
 @implementation TWGameStatusView

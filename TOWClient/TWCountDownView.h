@@ -11,5 +11,6 @@
 @interface TWCountDownView : UIView
 
 - (void)startCountDownAndExecuteWhenFinish:(void (^)(void))onFinish;
+- (void)finishedAndYouWon:(BOOL)youWon;
 
 @end

@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3729419E17EB3E80003626BD /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3729419D17EB3E80003626BD /* MultipeerConnectivity.framework */; };
-		3778B5CF17EB3AB90010D9C6 /* TWGameStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3778B5CE17EB3AB90010D9C6 /* TWGameStatusView.m */; };
+		3778B5DD17ECC5040010D9C6 /* TWCountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3778B5DA17ECC5040010D9C6 /* TWCountDownView.m */; };
+		3778B5DE17ECC5040010D9C6 /* TWGameStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3778B5DC17ECC5040010D9C6 /* TWGameStatusView.m */; };
 		37ACB4E817EAF17F004415F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4E717EAF17F004415F9 /* Foundation.framework */; };
 		37ACB4EA17EAF17F004415F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4E917EAF17F004415F9 /* CoreGraphics.framework */; };
 		37ACB4EC17EAF17F004415F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4EB17EAF17F004415F9 /* UIKit.framework */; };
@@ -23,21 +24,6 @@
 		37ACB50917EAF17F004415F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ACB4EB17EAF17F004415F9 /* UIKit.framework */; };
 		37ACB51117EAF17F004415F9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37ACB50F17EAF17F004415F9 /* InfoPlist.strings */; };
 		37ACB51317EAF17F004415F9 /* TOWClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ACB51217EAF17F004415F9 /* TOWClientTests.m */; };
-		6607C5AF17EB3BE4003E3B44 /* redFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5A517EB3BE4003E3B44 /* redFlag.png */; };
-		6607C5B017EB3BE4003E3B44 /* playerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5A617EB3BE4003E3B44 /* playerIcon.png */; };
-		6607C5B117EB3BE4003E3B44 /* progressRope.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5A717EB3BE4003E3B44 /* progressRope.png */; };
-		6607C5B217EB3BE4003E3B44 /* progressRope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5A817EB3BE4003E3B44 /* progressRope@2x.png */; };
-		6607C5B317EB3BE4003E3B44 /* playerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5A917EB3BE4003E3B44 /* playerIcon@2x.png */; };
-		6607C5B417EB3BE4003E3B44 /* redFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AA17EB3BE4003E3B44 /* redFlag@2x.png */; };
-		6607C5B517EB3BE4003E3B44 /* GrassBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AB17EB3BE4003E3B44 /* GrassBG.png */; };
-		6607C5B617EB3BE4003E3B44 /* GrassBG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AC17EB3BE4003E3B44 /* GrassBG@2x.png */; };
-		6607C5B717EB3BE4003E3B44 /* RopeTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AD17EB3BE4003E3B44 /* RopeTile.png */; };
-		6607C5B817EB3BE4003E3B44 /* RopeTile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */; };
-		6607C5BB17EB4115003E3B44 /* TWCountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6607C5BA17EB4115003E3B44 /* TWCountDownView.m */; };
-		6607C5D017EB52A8003E3B44 /* wonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CC17EB52A8003E3B44 /* wonIcon.png */; };
-		6607C5D117EB52A8003E3B44 /* lostIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CD17EB52A8003E3B44 /* lostIcon.png */; };
-		6607C5D217EB52A8003E3B44 /* lostIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CE17EB52A8003E3B44 /* lostIcon@2x.png */; };
-		6607C5D317EB52A8003E3B44 /* wonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6607C5CF17EB52A8003E3B44 /* wonIcon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +38,10 @@
 
 /* Begin PBXFileReference section */
 		3729419D17EB3E80003626BD /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
-		3778B5CD17EB3AB90010D9C6 /* TWGameStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGameStatusView.h; sourceTree = "<group>"; };
-		3778B5CE17EB3AB90010D9C6 /* TWGameStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGameStatusView.m; sourceTree = "<group>"; };
+		3778B5D917ECC5040010D9C6 /* TWCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCountDownView.h; sourceTree = "<group>"; };
+		3778B5DA17ECC5040010D9C6 /* TWCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCountDownView.m; sourceTree = "<group>"; };
+		3778B5DB17ECC5040010D9C6 /* TWGameStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWGameStatusView.h; sourceTree = "<group>"; };
+		3778B5DC17ECC5040010D9C6 /* TWGameStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWGameStatusView.m; sourceTree = "<group>"; };
 		37ACB4E417EAF17F004415F9 /* TOWClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOWClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ACB4E717EAF17F004415F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37ACB4E917EAF17F004415F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,22 +61,6 @@
 		37ACB50E17EAF17F004415F9 /* TOWClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TOWClientTests-Info.plist"; sourceTree = "<group>"; };
 		37ACB51017EAF17F004415F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37ACB51217EAF17F004415F9 /* TOWClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOWClientTests.m; sourceTree = "<group>"; };
-		6607C5A517EB3BE4003E3B44 /* redFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redFlag.png; sourceTree = SOURCE_ROOT; };
-		6607C5A617EB3BE4003E3B44 /* playerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerIcon.png; sourceTree = SOURCE_ROOT; };
-		6607C5A717EB3BE4003E3B44 /* progressRope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progressRope.png; sourceTree = SOURCE_ROOT; };
-		6607C5A817EB3BE4003E3B44 /* progressRope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progressRope@2x.png"; sourceTree = SOURCE_ROOT; };
-		6607C5A917EB3BE4003E3B44 /* playerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playerIcon@2x.png"; sourceTree = SOURCE_ROOT; };
-		6607C5AA17EB3BE4003E3B44 /* redFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redFlag@2x.png"; sourceTree = SOURCE_ROOT; };
-		6607C5AB17EB3BE4003E3B44 /* GrassBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GrassBG.png; sourceTree = SOURCE_ROOT; };
-		6607C5AC17EB3BE4003E3B44 /* GrassBG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GrassBG@2x.png"; sourceTree = SOURCE_ROOT; };
-		6607C5AD17EB3BE4003E3B44 /* RopeTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RopeTile.png; sourceTree = SOURCE_ROOT; };
-		6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RopeTile@2x.png"; sourceTree = SOURCE_ROOT; };
-		6607C5B917EB4115003E3B44 /* TWCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWCountDownView.h; sourceTree = "<group>"; };
-		6607C5BA17EB4115003E3B44 /* TWCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWCountDownView.m; sourceTree = "<group>"; };
-		6607C5CC17EB52A8003E3B44 /* wonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wonIcon.png; sourceTree = SOURCE_ROOT; };
-		6607C5CD17EB52A8003E3B44 /* lostIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lostIcon.png; sourceTree = SOURCE_ROOT; };
-		6607C5CE17EB52A8003E3B44 /* lostIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lostIcon@2x.png"; sourceTree = SOURCE_ROOT; };
-		6607C5CF17EB52A8003E3B44 /* wonIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wonIcon@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,25 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3778B5CC17EB3AB90010D9C6 /* Resources */ = {
+		3778B5D817ECC5040010D9C6 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				6607C5CC17EB52A8003E3B44 /* wonIcon.png */,
-				6607C5CD17EB52A8003E3B44 /* lostIcon.png */,
-				6607C5CE17EB52A8003E3B44 /* lostIcon@2x.png */,
-				6607C5CF17EB52A8003E3B44 /* wonIcon@2x.png */,
-				6607C5A517EB3BE4003E3B44 /* redFlag.png */,
-				6607C5A617EB3BE4003E3B44 /* playerIcon.png */,
-				6607C5A717EB3BE4003E3B44 /* progressRope.png */,
-				6607C5A817EB3BE4003E3B44 /* progressRope@2x.png */,
-				6607C5A917EB3BE4003E3B44 /* playerIcon@2x.png */,
-				6607C5AA17EB3BE4003E3B44 /* redFlag@2x.png */,
-				6607C5AB17EB3BE4003E3B44 /* GrassBG.png */,
-				6607C5AC17EB3BE4003E3B44 /* GrassBG@2x.png */,
-				6607C5AD17EB3BE4003E3B44 /* RopeTile.png */,
-				6607C5AE17EB3BE4003E3B44 /* RopeTile@2x.png */,
+				3778B5D917ECC5040010D9C6 /* TWCountDownView.h */,
+				3778B5DA17ECC5040010D9C6 /* TWCountDownView.m */,
+				3778B5DB17ECC5040010D9C6 /* TWGameStatusView.h */,
+				3778B5DC17ECC5040010D9C6 /* TWGameStatusView.m */,
 			);
-			path = Resources;
+			path = views;
 			sourceTree = "<group>";
 		};
 		37ACB4DB17EAF17F004415F9 = {
@@ -171,9 +133,7 @@
 		37ACB4ED17EAF17F004415F9 /* TOWClient */ = {
 			isa = PBXGroup;
 			children = (
-				3778B5CC17EB3AB90010D9C6 /* Resources */,
-				3778B5CD17EB3AB90010D9C6 /* TWGameStatusView.h */,
-				3778B5CE17EB3AB90010D9C6 /* TWGameStatusView.m */,
+				3778B5D817ECC5040010D9C6 /* views */,
 				37ACB4F617EAF17F004415F9 /* TWAppDelegate.h */,
 				37ACB4F717EAF17F004415F9 /* TWAppDelegate.m */,
 				37ACB4F917EAF17F004415F9 /* Main.storyboard */,
@@ -181,8 +141,6 @@
 				37ACB4FD17EAF17F004415F9 /* TWViewController.m */,
 				37ACB4FF17EAF17F004415F9 /* Images.xcassets */,
 				37ACB4EE17EAF17F004415F9 /* Supporting Files */,
-				6607C5B917EB4115003E3B44 /* TWCountDownView.h */,
-				6607C5BA17EB4115003E3B44 /* TWCountDownView.m */,
 			);
 			path = TOWClient;
 			sourceTree = "<group>";
@@ -294,22 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				37ACB50017EAF17F004415F9 /* Images.xcassets in Resources */,
-				6607C5B517EB3BE4003E3B44 /* GrassBG.png in Resources */,
-				6607C5B817EB3BE4003E3B44 /* RopeTile@2x.png in Resources */,
 				37ACB4F217EAF17F004415F9 /* InfoPlist.strings in Resources */,
-				6607C5B217EB3BE4003E3B44 /* progressRope@2x.png in Resources */,
-				6607C5B017EB3BE4003E3B44 /* playerIcon.png in Resources */,
-				6607C5B417EB3BE4003E3B44 /* redFlag@2x.png in Resources */,
-				6607C5D217EB52A8003E3B44 /* lostIcon@2x.png in Resources */,
-				6607C5D017EB52A8003E3B44 /* wonIcon.png in Resources */,
-				6607C5D117EB52A8003E3B44 /* lostIcon.png in Resources */,
-				6607C5B317EB3BE4003E3B44 /* playerIcon@2x.png in Resources */,
 				37ACB4FB17EAF17F004415F9 /* Main.storyboard in Resources */,
-				6607C5B117EB3BE4003E3B44 /* progressRope.png in Resources */,
-				6607C5D317EB52A8003E3B44 /* wonIcon@2x.png in Resources */,
-				6607C5AF17EB3BE4003E3B44 /* redFlag.png in Resources */,
-				6607C5B617EB3BE4003E3B44 /* GrassBG@2x.png in Resources */,
-				6607C5B717EB3BE4003E3B44 /* RopeTile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,11 +272,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6607C5BB17EB4115003E3B44 /* TWCountDownView.m in Sources */,
+				3778B5DE17ECC5040010D9C6 /* TWGameStatusView.m in Sources */,
 				37ACB4F417EAF17F004415F9 /* main.m in Sources */,
-				3778B5CF17EB3AB90010D9C6 /* TWGameStatusView.m in Sources */,
 				37ACB4F817EAF17F004415F9 /* TWAppDelegate.m in Sources */,
 				37ACB4FE17EAF17F004415F9 /* TWViewController.m in Sources */,
+				3778B5DD17ECC5040010D9C6 /* TWCountDownView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

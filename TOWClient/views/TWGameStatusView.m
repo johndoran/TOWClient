@@ -44,6 +44,8 @@
   [super layoutSubviews];
   
   [self.backgroundView setFrame:self.bounds];
+  [self setFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height-10)];
+
   
   [self.teamA setFrame:CGRectMake(5, (self.frame.size.height - self.teamA.frame.size.height)/2, self.teamA.frame.size.width, self.teamA.frame.size.height)];
   [self.rope setFrame:CGRectMake(10 + self.teamA.frame.size.width, (self.frame.size.height - self.rope.frame.size.height)/2, self.frame.size.width - (20 + self.teamA.frame.size.width + self.teamB.frame.size.width), self.rope.frame.size.height)];
@@ -58,7 +60,7 @@
   [self.backgroundView setBackgroundColor:[UIColor whiteColor]];
   [self.backgroundView setAlpha:0.5];
   [self addSubview:self.backgroundView];
-  [self sendSubviewToBack:self.backgroundColor];
+  [self sendSubviewToBack:self.backgroundView];
 }
 
 - (void)createPlayer{
